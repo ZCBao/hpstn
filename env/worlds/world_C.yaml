@@ -1,0 +1,104 @@
+world:
+  world_width: 12.0       # meter
+  world_height: 12.0      # meter
+  world_origin_x: -1.0    # meter
+  world_origin_y: -1.0    # meter
+  # world_map: 'test.png'
+  # map_origin_x: 0.0       # meter
+  # map_origin_y: 0.0       # meter
+  # map_resolution: 0.1     # meter
+  # square: [0.0, 0.0, 10.0, 10.0]  # [min_x, min_y, max_x, max_y]
+  # circle: [5.0, 5.0, 5.0]         # [center_x, center_y, radius]
+  square: [0.5, 0.5, 9.5, 9.5]  # [min_x, min_y, max_x, max_y]
+  circle: [5.0, 5.0, 4.0]       # [center_x, center_y, radius]
+  step_time: 0.1          # second
+
+
+robots:
+  robot_mode: 'diff' # omni or diff or ros
+  robot_vel_min: [ 0.0, -1.5] # [vx, wz] for diff, [vx, vy] for omni, [vx, vy, wz] for ros
+  robot_vel_max: [ 1.5,  1.5] # [vx, wz] for diff, [vx, vy] for omni, [vx, vy, wz] for ros
+  robot_init_mode: 2  # 0: custom; 1: random; 2: circle_uniform; 3: circle_random; 4: passage_uniform; 5: passage_random
+  robot_radius_list: [0.2, 0.2, 0.2, 0.2]
+  robot_footprint_list: [[0.20, 0.20, 0.15, 0.15], [0.20, 0.20, 0.15, 0.15], [0.20, 0.20, 0.15, 0.15]] # [front, rear, left, right] to the rotation center
+  robot_start_list: [[1.0, 1.0, 0.0], [9.0, 9.0, 0.0]]
+  robot_goal_list:  [[9.0, 9.0, 0.0], [1.0, 1.0, 0.0]]
+  robot_random_yaw: True
+  robot_random_radius: False
+  robot_random_footprint: False
+  robot_interval: 1.0
+  robot_task_interval: 1.0
+
+  lidar2d:
+    install_pos: [0.0, 0.0, 0.0]  # relative to the robot center: [x, y, theta]
+    range_min: 0.0
+    range_max: 5.0
+    angle_min: -1.5708
+    angle_max:  1.5708
+    range_num: 180
+
+
+# obstacles_circle:
+#   circle_static_num: 9
+#   circle_static_list: [[5.0, 5.0, 0.3],
+#                        [1.0, 5.0, 0.2],
+#                        [5.0, 1.0, 0.2],
+#                        [9.0, 5.0, 0.2],
+#                        [5.0, 9.0, 0.2],
+#                        [1.0, 1.0, 0.2],
+#                        [9.0, 1.0, 0.2],
+#                        [1.0, 9.0, 0.2],
+#                        [9.0, 9.0, 0.2]]
+#   circle_static_num: 11
+#   circle_static_list: [[1.0, 9.0, 0.2],
+#                        [5.0, 9.0, 0.2],
+#                        [3.0, 7.0, 0.2],
+#                        [7.0, 7.0, 0.2],
+#                        [1.0, 5.0, 0.2],
+#                        [5.0, 5.0, 0.2],
+#                        [9.0, 5.0, 0.2],
+#                        [3.0, 3.0, 0.2],
+#                        [7.0, 3.0, 0.2],
+#                        [5.0, 1.0, 0.2],
+#                        [9.0, 1.0, 0.2]]
+
+#   circle_dynamic_num: 5
+#   circle_init_mode: 1 # 0: custom; 1: random; 2: circle_uniform; 3: circle_random
+#   circle_radius_list: [0.2, 0.2]
+#   circle_vel_min: [-0.3, -0.3]
+#   circle_vel_max: [ 0.3,  0.3]
+#   circle_start_list: [[3.0, 3.0, 0.0], [7.0, 7.0, 0.0]]
+#   circle_goal_list:  [[7.0, 7.0, 0.0], [3.0, 3.0, 0.0]]
+#   circle_random_yaw: True
+#   circle_random_radius: False
+#   circle_interval: 1.0
+#   circle_task_interval: 1.0
+
+
+# obstacles_line:
+#   line_num: 4
+#   line_list: [[[ 0.0, 5.0], [ 4.0,  5.0]],
+#               [[ 6.0, 5.0], [10.0,  5.0]],
+#               [[ 0.0, 0.0], [ 0.0, 10.0]],
+#               [[10.0, 0.0], [10.0, 10.0]]]
+
+
+# obstacles_polygon:
+#   polygon_num: 4
+#   polygon_list: [[[2.75, 2.75], [3.25, 2.75], [3.25, 3.25], [2.75, 3.25]],
+#                  [[6.75, 2.75], [7.25, 2.75], [7.25, 3.25], [6.75, 3.25]],
+#                  [[6.75, 6.75], [7.25, 6.75], [7.25, 7.25], [6.75, 7.25]],
+#                  [[2.75, 6.75], [3.25, 6.75], [3.25, 7.25], [2.75, 7.25]]]
+#   polygon_num: 12
+#   polygon_list: [[[2.75, 9.00], [3.00, 8.75], [3.25, 9.00], [3.00, 9.25]],
+#                  [[6.75, 8.75], [9.25, 8.75], [9.25, 9.25], [6.75, 9.25]],
+#                  [[0.75, 7.00], [1.00, 6.75], [1.25, 7.00], [1.00, 7.25]],
+#                  [[4.75, 6.75], [5.25, 6.75], [5.25, 7.25], [4.75, 7.25]],
+#                  [[8.75, 7.00], [9.25, 6.75], [9.25, 7.25]],
+#                  [[2.75, 4.75], [3.25, 4.75], [3.25, 5.25], [2.75, 5.25]],
+#                  [[6.75, 4.75], [7.25, 4.75], [7.25, 5.25], [6.75, 5.25]],
+#                  [[0.75, 2.75], [1.25, 3.00], [0.75, 3.25]],
+#                  [[4.75, 2.75], [5.25, 2.75], [5.25, 3.25], [4.75, 3.25]],
+#                  [[8.75, 3.00], [9.00, 2.75], [9.25, 3.00], [9.00, 3.25]],
+#                  [[0.75, 0.75], [3.25, 0.75], [3.25, 1.25], [0.75, 1.25]],
+#                  [[6.75, 1.00], [7.00, 0.75], [7.25, 1.00], [7.00, 1.25]]]
