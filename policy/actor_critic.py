@@ -298,7 +298,7 @@ class Observer(nn.Module):
         else:
             all_obs_list = [obs_list[-1] for obs_list in obs_list_list]
         all_obs_list = list(zip(*all_obs_list))
-        ego_state_list, sensor_obs_list, agent_obs_list, costmap_obs_list = all_obs_list[0], all_obs_list[1], all_obs_list[2], all_obs_list[3]
+        ego_state_list, sensor_obs_list, agent_obs_list, costmap_obs_list = all_obs_list[0], all_obs_list[1], all_obs_list[2], []
         
         ego_state_batch = torch.stack(ego_state_list).to(self.device)
 
